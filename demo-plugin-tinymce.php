@@ -41,8 +41,8 @@
 
 
 // FirePHP initialization.
-require_once ('FirePHPCore/FirePHP.class.php');
-ob_start();
+//require_once ('FirePHPCore/FirePHP.class.php');
+//ob_start();
 
 /* 
  * Add a button to the editor interface.
@@ -56,14 +56,14 @@ global $tinymce_plugin_url;
 $tinymce_plugin_url = WP_PLUGIN_URL.'/demo-plugin-tinymce';
 
 
-$firephp = FirePHP::getInstance(true);
-$firephp->log('From top level...', 'From top level...');
+//$firephp = FirePHP::getInstance(true);
+//$firephp->log('From top level...', 'From top level...');
 
 
 function tinymce_plugin_init() {
 
-    $firephp = FirePHP::getInstance(true);
-    $firephp->log('tinymce_plugin_init', 'tinymce_plugin_init');
+    //$firephp = FirePHP::getInstance(true);
+    //$firephp->log('tinymce_plugin_init', 'tinymce_plugin_init');
     
     //if (get_user_option('rich_editing') == 'true') {
     // Include hooks for TinyMCE plugin
@@ -122,8 +122,8 @@ function tinymce_script_init() {
 
 function tinymce_plugin_mce_external_plugins($plugins) {
 
-    $firephp = FirePHP::getInstance(true);
-    $firephp->log('tinymce_plugin_mce_external_plugins', 'tinymce_plugin_mce_external_plugins');
+    //$firephp = FirePHP::getInstance(true);
+    //$firephp->log('tinymce_plugin_mce_external_plugins', 'tinymce_plugin_mce_external_plugins');
     
     global $tinymce_plugin_url;
     $plugins['demo_tinymce'] = $tinymce_plugin_url.'/tinymceplugin/editor_plugin.js';
@@ -132,8 +132,8 @@ function tinymce_plugin_mce_external_plugins($plugins) {
 
 function tinymce_plugin_mce_buttons($buttons) {
 
-    $firephp = FirePHP::getInstance(true);
-    $firephp->log('tinymce_plugin_mce_buttons', 'tinymce_plugin_mce_buttons');
+    //$firephp = FirePHP::getInstance(true);
+    //$firephp->log('tinymce_plugin_mce_buttons', 'tinymce_plugin_mce_buttons');
     
     array_push($buttons, 'demo_tinymce_button');
     return $buttons;
