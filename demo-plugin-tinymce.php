@@ -8,6 +8,9 @@
  Author URI: http://website-in-a-weekend.net/
  */
 
+// http://sumtips.com/2011/02/customize-wordpress-tinymce-buttons.html
+// http://alisothegeek.com/2011/05/tinymce-styles-dropdown-wordpress-visual-editor/
+
 
 /* 
  * Add a button to the editor interface.
