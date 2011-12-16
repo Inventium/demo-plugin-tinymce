@@ -1,5 +1,4 @@
-
 <?php
 
-echo 'foobar';
+echo 'foobar in wiaw';
 ?>

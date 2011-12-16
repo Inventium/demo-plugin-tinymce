@@ -37,48 +37,23 @@ function tinymce_plugin_init() {
     //load_plugin_textdomain('hrecipe', $hrecipe_plugin_url.'/lang', 'hrecipe/lang');
 }
 
-function tinymce_script_init() {
+function demo_admin_javascript() {
+  wp_register_script('star-button','/wp-content/plugins/demo-plugin-tinymce/js/star-button.js','','', true);
+  wp_enqueue_script('star-button');  
+}
+//add_action('admin_init','demo_admin_javascript');
 
-    global $tinymce_plugin_url;
-    // Only add the javascript to post.php, post-new.php, page-new.php, or
-    // bookmarklet.php pages
-    if (strpos($_SERVER['REQUEST_URI'], 'post-new.php') 
-    || strpos($_SERVER['REQUEST_URI'], 'page-new.php')
-    || strpos($_SERVER['REQUEST_URI'], 'page.php')
-    || strpos($_SERVER['REQUEST_URI'], 'post.php')) {
-?>
-  
+
+function tinymce_script_init() {
+?>  
 <script type="text/javascript">
-    //<![CDATA[  
-    
-    var tinymce_from_gui;
-    
+    //<![CDATA[ 
     function edInsertDemoTinyMCE(){
-        tb_show("Add a Tiny", "<?php echo $tinymce_plugin_url; ?>/tinymceinput.php?TB_iframe=true");
-        tinymce_from_gui = true;
+        tb_show("Add a Tiny", "/wiaw/wp-content/plugins/demo-plugin-tinymce/tinymceinput.php?TB_iframe=true");
     }
-    
-    function edInsertDemoTinyMCECode(){
-        tb_show("Add a Tiny", "<?php echo $tinymce_plugin_url; ?>/tinymceinput.php?TB_iframe=true");
-        tinymce_from_gui = false;
-    }
-    
-    var tinymce_qttoolbar = document.getElementById("ed_toolbar");  
-    
-    if (tinymce_qttoolbar) {
-        var tnewbutton = document.createElement("input");
-        tnewbutton.type = "button";
-        tnewbutton.id = 'ed_tinymce';
-        tnewbutton.className = 'ed_button';
-        tnewbutton.value = 'DemoTinyMCE';
-        tnewbutton.onclick = edInsertDemoTinyMCECode;
-        tnewbutton.title = 'TinyMCEDemo';
-        tinymce_qttoolbar.appendChild(tnewbutton);
-    } 
     //]]>
 </script>
-<?php 
-    }
+<?php
 }
 
 function tinymce_plugin_mce_external_plugins($plugins) {
@@ -95,6 +70,6 @@ function tinymce_plugin_mce_buttons($buttons) {
 }
 
 add_action('init', 'tinymce_plugin_init');
-add_filter('admin_footer', 'tinymce_script_init');
+add_filter('admin_print_footer_scripts', 'tinymce_script_init');
 
 ?>
