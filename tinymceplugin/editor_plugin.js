@@ -20,7 +20,7 @@ tinymce.create('tinymce.plugins.demo_tinymce', {
 	init : function(ed, url) {
 		ed.addButton('demo_tinymce_button', {
 			title : 'demo_tinymce.insertbutton',
-			image : url + '/starfull.gif',
+			image : url + '/wiaw-tinymce-button.png',
 			onclick : function () {
 				edInsertDemoTinyMCE();
 			}
